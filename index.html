@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terapia Quântica e Saúde do Corpo e da Mente</title>
+    <meta name="description" content="Protocolos de bem-estar e mentoria individual." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload das Imagens dos Produtos em Altíssima Velocidade -->
+    <link rel="preload" as="image" href="https://i.ibb.co/sd8xWNNF/spirulina-1.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/W48Gyg6D/floranew.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/7dsW2Lnd/ionew.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/M5JdZ6fS/Aminofloranew.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/nMW82hY1/quantum-bio.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/1fSDrh0d/Mtox-CDHG.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/zVpktf8J/Mtox-AIZn.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/mFH3Mch1/12.png">
+    <link rel="preload" as="image" href="https://i.ibb.co/hFm2pYRZ/11.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['Sora', 'sans-serif'],
+              display: ['Poppins', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                black: '#050508',
+                purple: {
+                  900: '#1B0F24',
+                  800: '#2A1233',
+                  700: '#3A1D45',
+                  accent: '#B58CFF',
+                },
+                green: {
+                  DEFAULT: '#28E06A',
+                  hover: '#1FC15A',
+                  glow: 'rgba(40, 224, 106, 0.4)',
+                },
+                glass: 'rgba(255, 255, 255, 0.08)',
+                glassBorder: 'rgba(255, 255, 255, 0.08)',
+              }
+            },
+            boxShadow: {
+              'glow-purple': '0 0 30px rgba(168, 112, 255, 0.15)',
+              'glow-green': '0 0 20px rgba(40, 224, 106, 0.2)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050508;
+        color: #F3F3F7;
+        overflow-x: hidden;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .text-shadow-sm {
+        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      }
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+      
+      /* New Animation: Smooth Axis Rotation (Sway) */
+      @keyframes rotate-y-axis {
+        0% { transform: rotateY(0deg) scale(1); }
+        25% { transform: rotateY(12deg) scale(1.05); }
+        75% { transform: rotateY(-12deg) scale(1.05); }
+        100% { transform: rotateY(0deg) scale(1); }
+      }
+      .animate-rotate-y {
+        animation: rotate-y-axis 5s ease-in-out infinite;
+      }
+      
+      /* New Animation: Wave (Fluid, Undulating) */
+      @keyframes wave {
+        0% { transform: translateY(0) translateX(0) rotate(0deg); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4)); }
+        25% { transform: translateY(-5px) translateX(2px) rotate(1.5deg); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4)); }
+        50% { transform: translateY(0) translateX(0) rotate(0deg); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4)); }
+        75% { transform: translateY(5px) translateX(-2px) rotate(-1.5deg); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4)); }
+        100% { transform: translateY(0) translateX(0) rotate(0deg); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4)); }
+      }
+      .animate-wave {
+        animation: wave 4s ease-in-out infinite;
+      }
+      
+      /* New Animation: Subtle Pulse */
+      @keyframes pulse-subtle {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+      }
+      .animate-pulse-subtle {
+        animation: pulse-subtle 2.5s ease-in-out infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
