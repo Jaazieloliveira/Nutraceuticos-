@@ -39,56 +39,62 @@ const Hero = () => {
             REPROGRAMAÇÃO BIOLÓGICA ACELERADA
           </span>
           <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white mb-6">
-            Pare de rasgar dinheiro com suplementos que não funcionam. <span className="text-brand-purple-accent block md:inline">Descubra o protocolo exato para o seu corpo.</span>
+            Pare de rasgar dinheiro com suplementos que não funcionam.
+            <span className="text-brand-purple-accent block md:inline">Descubra o protocolo exato para o seu corpo.</span>
           </h1>
           <p className="font-sans text-gray-400 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
             Energia inesgotável, foco blindado e intestino regulado. O método definitivo e validado, com acompanhamento direto no seu WhatsApp.
           </p>
-          
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <Button text="QUERO MEU PROTOCOLO AGORA" fullWidth className="sm:w-auto" />
           </div>
-
           <div className="flex gap-6 border-t border-white/10 pt-6">
-             <div className="flex items-center gap-2">
-               <Clock className="w-5 h-5 text-brand-green" />
-               <span className="text-xs text-gray-400 font-medium uppercase tracking-wider">Ação Imediata</span>
-             </div>
-             <div className="flex items-center gap-2">
-               <User className="w-5 h-5 text-brand-green" />
-               <span className="text-xs text-gray-400 font-medium uppercase tracking-wider">100% Personalizado</span>
-             </div>
-             <div className="flex items-center gap-2">
-               <MessageSquare className="w-5 h-5 text-brand-green" />
-               <span className="text-xs text-gray-400 font-medium uppercase tracking-wider">Acompanhamento Real</span>
-             </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-5 h-5 text-brand-green" />
+              <span className="text-xs text-gray-400 font-medium uppercase tracking-wider">Ação Imediata</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <User className="w-5 h-5 text-brand-green" />
+              <span className="text-xs text-gray-400 font-medium uppercase tracking-wider">100% Personalizado</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-brand-green" />
+              <span className="text-xs text-gray-400 font-medium uppercase tracking-wider">Acompanhamento Real</span>
+            </div>
           </div>
         </RevealOnScroll>
 
         <div className="relative flex justify-center items-center w-full">
           <RevealOnScroll delay={200} className="relative w-full flex justify-center" variant="slide-right">
             <div className="absolute inset-0 bg-brand-purple-accent/20 blur-[100px] rounded-full"></div>
-            {/* Video Container */}
-            <div 
+            {/* Animated Orb - replaces archived Streamable video */}
+            <div
               className="relative w-full max-w-[800px] aspect-square md:aspect-[4/5] lg:aspect-square mix-blend-screen z-20 flex justify-center items-center overflow-hidden"
-              style={{ 
-                maskImage: 'radial-gradient(circle at center, black 30%, transparent 70%)', 
+              style={{
+                maskImage: 'radial-gradient(circle at center, black 30%, transparent 70%)',
                 WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 70%)'
               }}
             >
               <div className="absolute inset-0 w-full h-full scale-[1.7] md:scale-[1.35] pointer-events-none">
-                <iframe 
-                  src="https://streamable.com/e/5q82o1?autoplay=1&muted=1&loop=1&controls=0&showinfo=0&background=1" 
-                  className="w-full h-full" 
-                  frameBorder="0" 
-                  width="100%" 
-                  height="100%" 
-                  allow="autoplay; fullscreen"
-                  loading="eager"
-                  style={{ 
-                    filter: 'brightness(1.1) contrast(1.4) saturate(1.2)'
-                  }} 
-                ></iframe>
+                <div className="w-full h-full relative">
+                  {/* Primary violet orb */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-3/4 h-3/4 rounded-full bg-violet-400 opacity-80 blur-3xl animate-pulse" style={{ animationDuration: '3s' }} />
+                  </div>
+                  {/* Bright white core */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-1/2 h-1/2 rounded-full bg-white opacity-60 blur-2xl animate-pulse" style={{ animationDuration: '2s', animationDelay: '0.5s' }} />
+                  </div>
+                  {/* Outer purple halo */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-full h-full rounded-full bg-purple-300 opacity-30 blur-3xl animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+                  </div>
+                  {/* Floating particles */}
+                  <div className="absolute top-1/4 left-1/3 w-6 h-6 rounded-full bg-white opacity-70 blur-md animate-bounce" style={{ animationDuration: '3s' }} />
+                  <div className="absolute top-2/3 right-1/3 w-4 h-4 rounded-full bg-green-300 opacity-60 blur-sm animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+                  <div className="absolute top-1/2 left-1/4 w-3 h-3 rounded-full bg-white opacity-50 blur-sm animate-bounce" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
+                  <div className="absolute bottom-1/4 right-1/4 w-5 h-5 rounded-full bg-violet-300 opacity-60 blur-sm animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }} />
+                </div>
               </div>
             </div>
           </RevealOnScroll>
@@ -137,15 +143,11 @@ const PainPoints = () => {
 // 4. Products Section (The Core)
 const ProductSection: React.FC<{ product: any, index: number }> = ({ product, index }) => {
   const isEven = index % 2 === 0;
-  // Subtle background variation to distinguish sections
-  const bgClass = isEven 
-    ? 'bg-gradient-to-b from-[#050508] via-[#0D0712] to-[#050508]' 
-    : 'bg-gradient-to-b from-[#050508] via-[#0A0A10] to-[#050508]';
+  const bgClass = isEven ? 'bg-gradient-to-b from-[#050508] via-[#0D0712] to-[#050508]' : 'bg-gradient-to-b from-[#050508] via-[#0A0A10] to-[#050508]';
 
   return (
     <section className={`py-20 border-t border-white/5 relative overflow-hidden ${bgClass}`} id={`product-${product.id}`}>
       <div className="max-w-5xl mx-auto px-6">
-        
         {/* Header (A) */}
         <RevealOnScroll variant="fade-down">
           <div className="text-center mb-12 max-w-3xl mx-auto">
@@ -163,7 +165,6 @@ const ProductSection: React.FC<{ product: any, index: number }> = ({ product, in
         {/* Content Block (B, C, D, E, F) */}
         <RevealOnScroll delay={200} variant="fade-in">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center glass-card p-6 md:p-10 rounded-3xl">
-            
             {/* Visual (B) */}
             <div className="md:col-span-5 flex justify-center">
               <RevealOnScroll variant="zoom-in" delay={300} className="w-full flex justify-center">
@@ -173,7 +174,6 @@ const ProductSection: React.FC<{ product: any, index: number }> = ({ product, in
 
             {/* Details */}
             <div className="md:col-span-7 space-y-8">
-              
               {/* O que apoia (C) */}
               <RevealOnScroll variant="slide-left" delay={400}>
                 <div>
@@ -199,12 +199,12 @@ const ProductSection: React.FC<{ product: any, index: number }> = ({ product, in
                     Sinais que você pode se beneficiar
                   </h3>
                   <ul className="space-y-2">
-                     {product.symptoms.map((item: string, i: number) => (
-                       <li key={i} className="flex items-center gap-2 text-gray-400 text-sm">
-                         <ArrowRight className="w-3 h-3 text-brand-purple-accent" />
-                         {item}
-                       </li>
-                     ))}
+                    {product.symptoms.map((item: string, i: number) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-400 text-sm">
+                        <ArrowRight className="w-3 h-3 text-brand-purple-accent" />
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </RevealOnScroll>
@@ -225,7 +225,6 @@ const ProductSection: React.FC<{ product: any, index: number }> = ({ product, in
                   <Button text="QUERO MEU PROTOCOLO AGORA" fullWidth />
                 </div>
               </RevealOnScroll>
-
             </div>
           </div>
         </RevealOnScroll>
@@ -245,14 +244,14 @@ const Benefits = () => {
         </RevealOnScroll>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {BENEFITS.map((b, i) => (
-             <RevealOnScroll key={i} delay={i * 50} className="h-full" variant="zoom-in">
-               <div className="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-3 hover:bg-white/5 transition-colors h-full">
-                 <div className="w-8 h-8 rounded-full bg-brand-green/20 flex items-center justify-center">
-                   <CheckCircle className="w-4 h-4 text-brand-green" />
-                 </div>
-                 <span className="text-sm font-medium text-gray-200">{b}</span>
-               </div>
-             </RevealOnScroll>
+            <RevealOnScroll key={i} delay={i * 50} className="h-full" variant="zoom-in">
+              <div className="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-3 hover:bg-white/5 transition-colors h-full">
+                <div className="w-8 h-8 rounded-full bg-brand-green/20 flex items-center justify-center">
+                  <CheckCircle className="w-4 h-4 text-brand-green" />
+                </div>
+                <span className="text-sm font-medium text-gray-200">{b}</span>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
         <RevealOnScroll delay={300} className="mt-12" variant="fade-up">
@@ -300,16 +299,16 @@ const Steps = () => {
             { title: "MAPEAMENTO BIOLÓGICO", desc: "Vou analisar sua rotina, seus objetivos e descobrir exatamente onde seu corpo está falhando." },
             { title: "EXECUÇÃO E RESULTADO", desc: "Receba seu protocolo de guerra. Comece a usar com a estratégia certa e veja seu corpo se transformar." }
           ].map((step, i) => (
-             <RevealOnScroll key={i} delay={i * 150} className="h-full" variant="fade-up">
-               <div className="relative group h-full">
-                  <div className="absolute inset-0 bg-brand-green/5 blur-xl group-hover:bg-brand-green/10 transition-colors rounded-3xl"></div>
-                  <div className="relative glass-card p-8 rounded-3xl text-center h-full flex flex-col items-center">
-                     <span className="text-5xl font-heading font-bold text-white/5 mb-4 group-hover:text-brand-green/20 transition-colors">0{i+1}</span>
-                     <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                     <p className="text-gray-400 text-sm">{step.desc}</p>
-                  </div>
-               </div>
-             </RevealOnScroll>
+            <RevealOnScroll key={i} delay={i * 150} className="h-full" variant="fade-up">
+              <div className="relative group h-full">
+                <div className="absolute inset-0 bg-brand-green/5 blur-xl group-hover:bg-brand-green/10 transition-colors rounded-3xl"></div>
+                <div className="relative glass-card p-8 rounded-3xl text-center h-full flex flex-col items-center">
+                  <span className="text-5xl font-heading font-bold text-white/5 mb-4 group-hover:text-brand-green/20 transition-colors">0{i+1}</span>
+                  <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                  <p className="text-gray-400 text-sm">{step.desc}</p>
+                </div>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
         <RevealOnScroll delay={400} className="mt-12 text-center" variant="fade-up">
@@ -323,9 +322,10 @@ const Steps = () => {
 // 8. FAQ
 const FAQItem: React.FC<{ q: string, a: string }> = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="border-b border-white/5 last:border-0">
-      <button 
+      <button
         className="w-full py-5 flex items-center justify-between text-left focus:outline-none group"
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -353,15 +353,16 @@ const FAQ = () => {
             </div>
           </RevealOnScroll>
         </div>
+
         {/* Accordion */}
         <div className="md:col-span-8">
-           <RevealOnScroll delay={200} variant="slide-right">
-             <div className="glass-card rounded-3xl p-6 md:p-8">
-               {FAQS.map((faq, i) => (
-                 <FAQItem key={i} q={faq.q} a={faq.a} />
-               ))}
-             </div>
-           </RevealOnScroll>
+          <RevealOnScroll delay={200} variant="slide-right">
+            <div className="glass-card rounded-3xl p-6 md:p-8">
+              {FAQS.map((faq, i) => (
+                <FAQItem key={i} q={faq.q} a={faq.a} />
+              ))}
+            </div>
+          </RevealOnScroll>
         </div>
       </div>
     </section>
@@ -375,26 +376,22 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h4 className="font-heading font-bold text-white mb-2">Especialista em Suplementação</h4>
         <p className="text-gray-500 text-sm mb-8">Atendimento e mentoria complementar.</p>
-        
         <div className="max-w-2xl mx-auto p-4 bg-white/5 rounded-xl border border-white/5">
-           <p className="text-[10px] md:text-xs text-gray-600 leading-relaxed uppercase tracking-wide">
-             Disclaimer: Os produtos listados são suplementos alimentares e terapias complementares. Não são medicamentos e não substituem o tratamento médico convencional. Em caso de condição de saúde, procure sempre um profissional médico habilitado. Resultados variam de pessoa para pessoa.
-           </p>
+          <p className="text-[10px] md:text-xs text-gray-600 leading-relaxed uppercase tracking-wide">
+            Disclaimer: Os produtos listados são suplementos alimentares e terapias complementares. Não são medicamentos e não substituem o tratamento médico convencional. Em caso de condição de saúde, procure sempre um profissional médico habilitado. Resultados variam de pessoa para pessoa.
+          </p>
         </div>
-        
         <p className="text-xs text-gray-700 mt-8">© {new Date().getFullYear()} Todos os direitos reservados.</p>
       </div>
     </footer>
   );
 };
 
-// 10. Floating WhatsApp Button (High Res 3D CSS)
+// 10. Floating WhatsApp Button
 const FloatingWhatsApp = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
-    // Show after scrolling a bit to not clutter hero, or keep always visible?
-    // User said "replace the button", implies it's the primary persistent CTA.
-    // I'll make it appear after a short scroll to feel "interactive" but always accessible on main content
     const handleScroll = () => setIsVisible(window.scrollY > 100);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -402,48 +399,39 @@ const FloatingWhatsApp = () => {
 
   return (
     <div className={`fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 transition-all duration-500 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-       <a 
-         href={WHATSAPP_LINK} 
-         target="_blank" 
-         rel="noopener noreferrer"
-         aria-label="Falar no WhatsApp"
-         className="block relative group"
-       >
-         {/* Ping Animation Layer */}
-         <div className="absolute inset-0 bg-brand-green rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"></div>
-         
-         {/* 3D Container - Pure CSS to ensure high res vector quality and 3D look */}
-         <div className="relative w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 animate-float transition-transform duration-300 group-hover:-translate-y-1">
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4ADE80] to-[#166534] shadow-[0_10px_25px_-5px_rgba(34,197,94,0.6),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] flex items-center justify-center relative overflow-hidden border border-white/10">
-                {/* Gloss/Shine Effect */}
-                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-full pointer-events-none"></div>
-                
-                {/* Official WhatsApp SVG Path */}
-                <svg viewBox="0 0 24 24" className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 fill-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.2)] z-10 relative" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                </svg>
-            </div>
-         </div>
-       </a>
+      <a
+        href={WHATSAPP_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Falar no WhatsApp"
+        className="block relative group"
+      >
+        <div className="absolute inset-0 bg-brand-green rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"></div>
+        <div className="relative w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 animate-float transition-transform duration-300 group-hover:-translate-y-1">
+          <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4ADE80] to-[#166534] shadow-[0_10px_25px_-5px_rgba(34,197,94,0.6),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] flex items-center justify-center relative overflow-hidden border border-white/10">
+            <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-full pointer-events-none"></div>
+            <svg viewBox="0 0 24 24" className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 fill-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.2)] z-10 relative" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+          </div>
+        </div>
+      </a>
     </div>
   );
 };
 
 // --- APP COMPOSITION ---
-
 function App() {
   return (
     <div className="min-h-screen font-sans selection:bg-brand-purple-accent selection:text-white">
       <Header />
       <Hero />
       <PainPoints />
-      
       <div id="products-anchor">
         {PRODUCTS.map((product, index) => (
           <ProductSection key={product.id} product={product} index={index} />
         ))}
       </div>
-
       <Benefits />
       <Trust />
       <Steps />
