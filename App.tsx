@@ -4,6 +4,7 @@ import { PRODUCTS, FAQS, BENEFITS, WHATSAPP_LINK } from './constants';
 import { Button } from './components/Button';
 import { ProductImage } from './components/ProductImage';
 import { RevealOnScroll } from './components/RevealOnScroll';
+import { heroVideoB64 } from './heroVideo';
 
 // --- COMPONENTS ---
 
@@ -67,36 +68,15 @@ const Hero = () => {
         <div className="relative flex justify-center items-center w-full">
           <RevealOnScroll delay={200} className="relative w-full flex justify-center" variant="slide-right">
             <div className="absolute inset-0 bg-brand-purple-accent/20 blur-[100px] rounded-full"></div>
-            {/* Animated Orb - replaces archived Streamable video */}
-            <div
-              className="relative w-full max-w-[800px] aspect-square md:aspect-[4/5] lg:aspect-square mix-blend-screen z-20 flex justify-center items-center overflow-hidden"
-              style={{
-                maskImage: 'radial-gradient(circle at center, black 30%, transparent 70%)',
-                WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 70%)'
-              }}
-            >
-              <div className="absolute inset-0 w-full h-full scale-[1.7] md:scale-[1.35] pointer-events-none">
-                <div className="w-full h-full relative">
-                  {/* Primary violet orb */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-3/4 h-3/4 rounded-full bg-violet-400 opacity-80 blur-3xl animate-pulse" style={{ animationDuration: '3s' }} />
-                  </div>
-                  {/* Bright white core */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-1/2 h-1/2 rounded-full bg-white opacity-60 blur-2xl animate-pulse" style={{ animationDuration: '2s', animationDelay: '0.5s' }} />
-                  </div>
-                  {/* Outer purple halo */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-full h-full rounded-full bg-purple-300 opacity-30 blur-3xl animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }} />
-                  </div>
-                  {/* Floating particles */}
-                  <div className="absolute top-1/4 left-1/3 w-6 h-6 rounded-full bg-white opacity-70 blur-md animate-bounce" style={{ animationDuration: '3s' }} />
-                  <div className="absolute top-2/3 right-1/3 w-4 h-4 rounded-full bg-green-300 opacity-60 blur-sm animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
-                  <div className="absolute top-1/2 left-1/4 w-3 h-3 rounded-full bg-white opacity-50 blur-sm animate-bounce" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
-                  <div className="absolute bottom-1/4 right-1/4 w-5 h-5 rounded-full bg-violet-300 opacity-60 blur-sm animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }} />
-                </div>
-              </div>
-            </div>
+            {/* Hero Video */}
+            <video
+              src={`data:video/mp4;base64,${heroVideoB64}`}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="relative w-full max-w-[800px] aspect-square md:aspect-[4/5] lg:aspect-square mix-blend-screen z-20 object-cover scale-[1.7] md:scale-[1.35] pointer-events-none"
+            />
           </RevealOnScroll>
         </div>
       </div>
