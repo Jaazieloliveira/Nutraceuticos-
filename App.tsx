@@ -50,7 +50,7 @@ const Hero = () => {
   }, [videoSrc]);
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-black">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:grid md:grid-cols-2 gap-12 items-center relative z-10">
         <RevealOnScroll className="text-left w-full" variant="slide-left">
           <span className="inline-block py-1 px-3 rounded-full bg-brand-purple-900/50 border border-brand-purple-accent/20 text-brand-purple-accent text-xs font-bold tracking-widest mb-6 uppercase">
             REPROGRAMAÇÃO BIOLÓGICA ACELERADA
@@ -92,7 +92,7 @@ const Hero = () => {
                   muted
                   loop
                   playsInline
-                  className="relative w-full max-w-[800px] aspect-square md:aspect-[4/5] lg:aspect-square mix-blend-screen z-20 object-cover scale-[1.7] md:scale-[1.35] pointer-events-none"
+                  className="relative w-full h-auto max-h-[70vh] object-contain mix-blend-screen z-0 pointer-events-none"
                 />
           </RevealOnScroll>
         </div>
