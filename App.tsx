@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 import { Menu, X, CheckCircle, Shield, Clock, MessageSquare, ArrowRight, User, Star, ChevronDown, ChevronUp, Battery, Activity, Brain, ShieldCheck } from 'lucide-react';
 import { PRODUCTS, FAQS, BENEFITS, WHATSAPP_LINK } from './constants';
 import { Button } from './components/Button';
@@ -32,6 +32,22 @@ const Header = () => {
 
 // 1. Hero
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = useState('');
+  useEffect(() => {
+    const b = atob(heroVideoB64);
+    const arr = new Uint8Array(b.length);
+    for (let i = 0; i < b.length; i++) arr[i] = b.charCodeAt(i);
+    const blob = new Blob([arr], { type: 'video/mp4' });
+    const url = URL.createObjectURL(blob);
+    setVideoSrc(url);
+    return () => URL.revokeObjectURL(url);
+  }, []);
+  useEffect(() => {
+    if (videoSrc && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, [videoSrc]);
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-black">
       <div className="max-w-6xl mx-auto px-6 flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -70,13 +86,14 @@ const Hero = () => {
             <div className="absolute inset-0 bg-brand-purple-accent/20 blur-[100px] rounded-full"></div>
             {/* Hero Video */}
             <video
-              src={`data:video/mp4;base64,${heroVideoB64}`}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="relative w-full max-w-[800px] aspect-square md:aspect-[4/5] lg:aspect-square mix-blend-screen z-20 object-cover scale-[1.7] md:scale-[1.35] pointer-events-none"
-            />
+                  ref={videoRef}
+                  src={videoSrc}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="relative w-full max-w-[800px] aspect-square md:aspect-[4/5] lg:aspect-square mix-blend-screen z-20 object-cover scale-[1.7] md:scale-[1.35] pointer-events-none"
+                />
           </RevealOnScroll>
         </div>
       </div>
