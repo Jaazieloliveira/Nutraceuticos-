@@ -1,23 +1,20 @@
-import React, { useState, useEffect , useRef} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, CheckCircle, Shield, Clock, MessageSquare, ArrowRight, User, Star, ChevronDown, ChevronUp, Battery, Activity, Brain, ShieldCheck } from 'lucide-react';
 import { PRODUCTS, FAQS, BENEFITS, WHATSAPP_LINK } from './constants';
 import { Button } from './components/Button';
 import { ProductImage } from './components/ProductImage';
 import { RevealOnScroll } from './components/RevealOnScroll';
-import { heroVideoB64 } from './heroVideo';
 
 // --- COMPONENTS ---
 
 // 0. Header
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-brand-black/90 backdrop-blur-xl border-b border-white/5 shadow-lg' : 'bg-transparent'}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -32,22 +29,6 @@ const Header = () => {
 
 // 1. Hero
 const Hero = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoSrc, setVideoSrc] = useState('');
-  useEffect(() => {
-    const b = atob(heroVideoB64);
-    const arr = new Uint8Array(b.length);
-    for (let i = 0; i < b.length; i++) arr[i] = b.charCodeAt(i);
-    const blob = new Blob([arr], { type: 'video/mp4' });
-    const url = URL.createObjectURL(blob);
-    setVideoSrc(url);
-    return () => URL.revokeObjectURL(url);
-  }, []);
-  useEffect(() => {
-    if (videoSrc && videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
-  }, [videoSrc]);
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-black">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -56,7 +37,7 @@ const Hero = () => {
             REPROGRAMAÇÃO BIOLÓGICA ACELERADA
           </span>
           <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white mb-6">
-            Pare de rasgar dinheiro com suplementos que não funcionam.
+            Pare de rasgar dinheiro com suplementos que não funcionam.{' '}
             <span className="text-brand-purple-accent block md:inline">Descubra o protocolo exato para o seu corpo.</span>
           </h1>
           <p className="font-sans text-gray-400 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
@@ -84,16 +65,11 @@ const Hero = () => {
         <div className="relative flex justify-center items-center w-full">
           <RevealOnScroll delay={200} className="relative w-full flex justify-center" variant="slide-right">
             <div className="absolute inset-0 bg-brand-purple-accent/20 blur-[100px] rounded-full"></div>
-            {/* Hero Video */}
-            <video
-                  ref={videoRef}
-                  src={videoSrc}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="relative w-full h-auto max-h-[70vh] object-contain mix-blend-screen z-0 pointer-events-none"
-                />
+            <img
+              src="https://i.ibb.co/sd8xWNNF/spirulina-1.png"
+              alt="Spirulina Anew"
+              className="relative w-full h-auto max-h-[70vh] object-contain animate-wave z-10"
+            />
           </RevealOnScroll>
         </div>
       </div>
@@ -108,7 +84,6 @@ const PainPoints = () => {
     { title: "INTESTINO TRAVADO?", icon: <Activity className="text-brand-purple-accent w-6 h-6" />, desc: "Inchaço constante, dores e metabolismo lento. Seu segundo cérebro está inflamado e destruindo sua saúde." },
     { title: "MENTE NEVOENTA?", icon: <Brain className="text-brand-purple-accent w-6 h-6" />, desc: "Falta de concentração, esquecimentos e produtividade no lixo. Você não consegue focar no que realmente importa." }
   ];
-
   return (
     <section className="py-16 relative">
       <div className="max-w-6xl mx-auto px-6">
@@ -141,11 +116,9 @@ const PainPoints = () => {
 const ProductSection: React.FC<{ product: any, index: number }> = ({ product, index }) => {
   const isEven = index % 2 === 0;
   const bgClass = isEven ? 'bg-gradient-to-b from-[#050508] via-[#0D0712] to-[#050508]' : 'bg-gradient-to-b from-[#050508] via-[#0A0A10] to-[#050508]';
-
   return (
     <section className={`py-20 border-t border-white/5 relative overflow-hidden ${bgClass}`} id={`product-${product.id}`}>
       <div className="max-w-5xl mx-auto px-6">
-        {/* Header (A) */}
         <RevealOnScroll variant="fade-down">
           <div className="text-center mb-12 max-w-3xl mx-auto">
             <div className="flex justify-center mb-4">
@@ -159,19 +132,14 @@ const ProductSection: React.FC<{ product: any, index: number }> = ({ product, in
           </div>
         </RevealOnScroll>
 
-        {/* Content Block (B, C, D, E, F) */}
         <RevealOnScroll delay={200} variant="fade-in">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center glass-card p-6 md:p-10 rounded-3xl">
-            {/* Visual (B) */}
             <div className="md:col-span-5 flex justify-center">
               <RevealOnScroll variant="zoom-in" delay={300} className="w-full flex justify-center">
                 <ProductImage productName={product.name} type={product.imageType} />
               </RevealOnScroll>
             </div>
-
-            {/* Details */}
             <div className="md:col-span-7 space-y-8">
-              {/* O que apoia (C) */}
               <RevealOnScroll variant="slide-left" delay={400}>
                 <div>
                   <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
@@ -189,7 +157,6 @@ const ProductSection: React.FC<{ product: any, index: number }> = ({ product, in
                 </div>
               </RevealOnScroll>
 
-              {/* Sinais (D) */}
               <RevealOnScroll variant="slide-left" delay={500}>
                 <div className="bg-white/5 rounded-xl p-5 border border-white/5">
                   <h3 className="text-white font-bold text-sm mb-3 uppercase tracking-wide opacity-80">
@@ -206,7 +173,6 @@ const ProductSection: React.FC<{ product: any, index: number }> = ({ product, in
                 </div>
               </RevealOnScroll>
 
-              {/* Guidance (E) */}
               <RevealOnScroll variant="slide-left" delay={600}>
                 <div className="flex gap-4 items-start border-l-2 border-brand-purple-accent pl-4">
                   <div className="text-sm text-gray-300 italic">
@@ -216,7 +182,6 @@ const ProductSection: React.FC<{ product: any, index: number }> = ({ product, in
                 </div>
               </RevealOnScroll>
 
-              {/* CTA (F) */}
               <RevealOnScroll variant="fade-up" delay={700}>
                 <div className="pt-2">
                   <Button text="QUERO MEU PROTOCOLO AGORA" fullWidth />
@@ -319,13 +284,9 @@ const Steps = () => {
 // 8. FAQ
 const FAQItem: React.FC<{ q: string, a: string }> = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className="border-b border-white/5 last:border-0">
-      <button
-        className="w-full py-5 flex items-center justify-between text-left focus:outline-none group"
-        onClick={() => setIsOpen(!isOpen)}
-      >
+      <button className="w-full py-5 flex items-center justify-between text-left focus:outline-none group" onClick={() => setIsOpen(!isOpen)}>
         <span className="font-medium text-gray-200 group-hover:text-brand-green transition-colors">{q}</span>
         {isOpen ? <ChevronUp className="w-5 h-5 text-gray-500" /> : <ChevronDown className="w-5 h-5 text-gray-500" />}
       </button>
@@ -340,7 +301,6 @@ const FAQ = () => {
   return (
     <section className="py-20 bg-brand-black">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12">
-        {/* Left CTA Card */}
         <div className="md:col-span-4">
           <RevealOnScroll className="h-full" variant="slide-left">
             <div className="glass-card p-8 rounded-3xl bg-gradient-to-br from-brand-purple-900/50 to-brand-black sticky top-24 border border-brand-purple-accent/20">
@@ -350,8 +310,6 @@ const FAQ = () => {
             </div>
           </RevealOnScroll>
         </div>
-
-        {/* Accordion */}
         <div className="md:col-span-8">
           <RevealOnScroll delay={200} variant="slide-right">
             <div className="glass-card rounded-3xl p-6 md:p-8">
@@ -387,22 +345,14 @@ const Footer = () => {
 // 10. Floating WhatsApp Button
 const FloatingWhatsApp = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => setIsVisible(window.scrollY > 100);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
     <div className={`fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 transition-all duration-500 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-      <a
-        href={WHATSAPP_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Falar no WhatsApp"
-        className="block relative group"
-      >
+      <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" className="block relative group">
         <div className="absolute inset-0 bg-brand-green rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"></div>
         <div className="relative w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 animate-float transition-transform duration-300 group-hover:-translate-y-1">
           <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4ADE80] to-[#166534] shadow-[0_10px_25px_-5px_rgba(34,197,94,0.6),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] flex items-center justify-center relative overflow-hidden border border-white/10">
