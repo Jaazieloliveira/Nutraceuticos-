@@ -163,18 +163,20 @@ export const PRODUCTS = [
     id: "acqua",
     name: "ACQUA",
     subtitle: "ÁGUA DE ALTA QUALIDADE E PUREZA",
-    forWhom: "Quem busca hidratação premium para potencializar saúde e bem-estar",
+    forWhom: "Quem busca hidratação de alta performance para potencializar resultados e saúde",
     supports: [
-      "Hidratação celular profunda",
-      "Pureza e qualidade superior",
-      "Potencializa a absorção dos demais suplementos"
+      "HIDRATAÇÃO CELULAR PROFUNDA E EFICIENTE",
+      "Água de pureza superior — livre de contaminantes e metais pesados",
+      "POTENCIALIZA A AÇÃO DE TODOS OS SUPLEMENTOS DO SEU PROTOCOLO",
+      "Equilíbrio mineral natural que seu organismo precisa"
     ],
     symptoms: [
-      "Cansaço e falta de energia por desidratação",
-      "Dificuldade na absorção de nutrientes",
-      "Qualidade de vida abaixo do ideal"
+      "Corpo desidratado e sem energia mesmo bebendo água comum",
+      "ABSORÇÃO DEFICIENTE DE NUTRIENTES E SUPLEMENTOS",
+      "Toxinas e impurezas comprometendo sua saúde silenciosamente",
+      "FADIGA, CABEÇA PESADA E BAIXO DESEMPENHO"
     ],
-    guidance: "A base de qualquer protocolo começa pela hidratação certa. Vou te mostrar como usar a Acqua como fundação da sua saúde.",
+    guidance: "Sem hidratação de qualidade, nenhum suplemento funciona no máximo. A Acqua é a base do seu protocolo — vou te mostrar como ela transforma seus resultados de dentro para fora.",
     icon: <Droplet className="w-6 h-6 text-brand-purple-accent" />,
     imageType: "bottle-acqua"
   },
