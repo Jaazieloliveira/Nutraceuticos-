@@ -1,22 +1,23 @@
-import { Zap, ShieldCheck, HeartPulse, Activity, Brain, Battery, Droplets, Leaf, Sparkles } from 'lucide-react';
+import { Zap, ShieldCheck, HeartPulse, Activity, Battery, Droplets, Droplet, Leaf, Sparkles } from 'lucide-react';
+import React from 'react';
 
 export const WHATSAPP_LINK = "https://wa.me/5591988952315";
 
 export const PRODUCTS = [
   {
     id: "espirulina",
-    name: "Espirulina Anew",
-    subtitle: "EXPLOSÃO DE ENERGIA E NUTRIÇÃO CELULAR DE ALTA DENSIDADE.",
-    forWhom: "Pessoas exaustas que precisam de um choque de vitalidade imediato.",
+    name: "SPIRULINA Anew",
+    subtitle: "DESCONTAMINAÇÃO ORGANICA",
+    forWhom: "Nutrição abrangente de proteínas, vitaminas e minerais",
     supports: [
-      "Bomba nutricional de rápida absorção",
-      "Energia inesgotável e foco blindado",
+      "Nutrição abrangente de proteínas, vitaminas e minerais",
+      "Reequilíbrio nutricional",
       "Fim dos picos e quedas de energia"
     ],
     symptoms: [
       "Acorda destruído mesmo após dormir",
       "Apagão de energia no meio da tarde",
-      "Fome descontrolada e metabolismo lento"
+      "Fome descontrolada e obesidade"
     ],
     guidance: "Vou te passar a dosagem cirúrgica. Chega de tomar errado e jogar dinheiro no lixo.",
     icon: <Battery className="w-6 h-6 text-brand-purple-accent" />,
@@ -25,17 +26,17 @@ export const PRODUCTS = [
   {
     id: "floranew",
     name: "Floranew Anew",
-    subtitle: "A FAXINA DEFINITIVA PARA O SEU INTESTINO TRAVADO.",
-    forWhom: "Quem sofre com inchaço, dores e um intestino que destrói o humor.",
+    subtitle: "PRÉ E PRÓBIOTICO",
+    forWhom: "",
     supports: [
       "Regulação intestinal implacável",
-      "Fim do inchaço e gases crônicos",
-      "Absorção máxima de nutrientes"
+      "FORTALECIMENTO DA MICROBIOTA INTESTINAL",
+      "HARMONIZAÇÃO INTESTINAL",
+      "ENZIMAS DIGESTIVAS"
     ],
     symptoms: [
-      "Barriga estufada após qualquer refeição",
-      "Intestino preso ou imprevisível",
-      "Sensação de peso e inflamação constante"
+      "MÁ DIGESTÃO DOS ALIMENTOS",
+      "MAL HUMOR E IRRITABILIDADE"
     ],
     guidance: "Vamos reprogramar seu segundo cérebro. O horário exato faz toda a diferença.",
     icon: <Leaf className="w-6 h-6 text-brand-purple-accent" />,
@@ -44,8 +45,8 @@ export const PRODUCTS = [
   {
     id: "ionew",
     name: "Ionew Anew",
-    subtitle: "O COMBUSTÍVEL ESSENCIAL PARA A SUA TIREOIDE E METABOLISMO.",
-    forWhom: "Quem está com o metabolismo travado e precisa de iodo, zinco e selênio.",
+    subtitle: "MINERAL ESSENCIAL PARA A SUA TIREOIDE E METABOLISMO",
+    forWhom: "MINERAL ESSENCIAL PARA A SUA TIREOIDE E METABOLISMO",
     supports: [
       "Aceleração metabólica real",
       "Blindagem do sistema imunológico",
@@ -63,17 +64,19 @@ export const PRODUCTS = [
   {
     id: "aminofloranew",
     name: "Aminofloranew Anew",
-    subtitle: "RECUPERAÇÃO MUSCULAR BRUTAL E PERFORMANCE EXTREMA.",
-    forWhom: "Quem treina pesado ou trabalha até a exaustão e precisa de recuperação rápida.",
+    subtitle: "RECUPERAÇÃO MUSCULAR",
+    forWhom: "",
     supports: [
       "Reconstrução muscular acelerada",
+      "RECONSTRUÇÃO: OSSOS, MUSCULOS E TENDOES",
       "Fim da fadiga pós-treino",
-      "Força e resistência inabaláveis"
+      "QUALIDADE DE VIDA"
     ],
     symptoms: [
       "Dores musculares que não passam",
       "Corpo pesado e sem força",
-      "Estagnação nos resultados físicos"
+      "Estagnação nos resultados físicos",
+      "FIM DA SARCOPENIA / MAL DESEMPENHO FISICO"
     ],
     guidance: "O timing aqui é tudo. Vou te dizer o minuto exato para tomar e destruir a fadiga.",
     icon: <Activity className="w-6 h-6 text-brand-purple-accent" />,
@@ -81,18 +84,15 @@ export const PRODUCTS = [
   },
   {
     id: "biosymbio",
-    name: "BioSymbio*21",
-    subtitle: "RECONSTRUÇÃO TOTAL DA SUA MICROBIOTA INTESTINAL.",
-    forWhom: "Quem tem o intestino completamente destruído por má alimentação e estresse.",
+    name: "LINHA BIOSYMBIO",
+    subtitle: "ANTI-PARASITARIO",
+    forWhom: "ESSENCIAS VIBRACIONAIS QUANTICAS",
     supports: [
-      "Repovoamento de bactérias de elite",
-      "Blindagem contra inflamações",
-      "Digestão de ferro"
+      "NEUTRALIZAÇÃO DE BACTERIAS, FUNGOS E PROTOZOARIOS",
+      "BioSymbio*1: para vermes e protozoários | BioSymbio*2: para bactérias | BioSymbio*21: para fungos e vírus"
     ],
     symptoms: [
-      "Dores abdominais e cólicas frequentes",
-      "Digestão lenta que trava o seu dia",
-      "Imunidade baixa por conta do intestino"
+      "Apoio contra parasitas de modo GERAL"
     ],
     guidance: "Esse é o seu exército de defesa. Vou te ensinar a blindar seu intestino de vez.",
     icon: <ShieldCheck className="w-6 h-6 text-brand-purple-accent" />,
@@ -100,56 +100,40 @@ export const PRODUCTS = [
   },
   {
     id: "mtox-cdhg",
-    name: "MTox*CdHg",
-    subtitle: "DETOX PROFUNDO: ARRANQUE O LIXO TÓXICO DO SEU CORPO.",
-    forWhom: "Quem precisa de uma varredura completa contra toxinas e metais pesados.",
+    name: "LINHA MTOX",
+    subtitle: "NEUTRALIZAÇÃO FREQUENCIAL DE METAIS TOXICOS",
+    forWhom: "ESSENCIA VIBRACIONAIS QUANTICAS",
     supports: [
       "Eliminação agressiva de toxinas",
-      "Limpeza celular profunda",
-      "Restauração do equilíbrio biológico"
+      "NEUTRALIZAÇÃO DE METAIS TOXICO",
+      "FACILITA O EMAGRECIMENTO",
+      "Restauração do equilíbrio biológico",
+      "FACILITA A ABSORÇÃO DE VITAMINAS E MINERAIS"
     ],
     symptoms: [
       "Névoa mental e lentidão de raciocínio",
-      "Corpo inflamado e pesado",
-      "Exposição constante a poluição e industrializados"
+      "DESARMONIA NOS SISTEMAS PROVOCANDO SINTOMAS",
+      "BAIXA IMUNIDADE",
+      "SINTOMAS INESPLICAVEIS"
     ],
-    guidance: "Não é suco verde. É detox celular sério. Vou te guiar passo a passo.",
+    guidance: "A Linha MTox age modulando as frequências negativas dos metais tóxicos no organismo. Vou te dar o protocolo certo para cada tipo de metal.",
     icon: <Droplets className="w-6 h-6 text-brand-purple-accent" />,
     imageType: "bottle-mtox-cdhg"
   },
   {
-    id: "mtox-alzn",
-    name: "MTox*AlZn",
-    subtitle: "BLINDAGEM NEUROLÓGICA E FIM DA NÉVOA MENTAL.",
-    forWhom: "Quem está com o cérebro fritando pelo estresse e precisa de foco laser.",
-    supports: [
-      "Clareza mental absoluta",
-      "Proteção contra estresse oxidativo extremo",
-      "Foco e concentração inabaláveis"
-    ],
-    symptoms: [
-      "Esquecimentos frequentes e apagões",
-      "Dificuldade de focar em uma única tarefa",
-      "Sobrecarga mental e esgotamento"
-    ],
-    guidance: "Seu cérebro precisa de resgate. Vou te passar o protocolo para religar sua mente.",
-    icon: <Brain className="w-6 h-6 text-brand-purple-accent" />,
-    imageType: "bottle-mtox-alzn"
-  },
-  {
     id: "ghl-plus",
     name: "Gh-L*E Plus",
-    subtitle: "A FONTE DA JUVENTUDE: VITALIDADE E ANTI-ENVELHECIMENTO.",
-    forWhom: "Quem se recusa a envelhecer fraco e quer manter a máquina rodando 100%.",
+    subtitle: "NEUTRALIZAÇÃO DE RADIAÇÃO E ESTRESSE",
+    forWhom: "",
     supports: [
       "Explosão de vigor físico e mental",
-      "Desaceleração do envelhecimento celular",
-      "Resistência de um atleta"
+      "NEUTRALIZAR A RADIAÇÃO DE CELULAR, WI FI, EXAMES DE IMAGEM...",
+      "PROTEGE A MENTE"
     ],
     symptoms: [
-      "Sentindo o peso da idade chegando",
-      "Sono que não recupera nada",
-      "Falta de força para as tarefas básicas"
+      "DORMIR MAIS E MELHOR",
+      "MAIS ENERGIA E HUMOR",
+      "MELHORA A COGNIÇÃO E ASSIMILAÇÃO"
     ],
     guidance: "Vamos hackear sua vitalidade. A constância aqui vai te transformar.",
     icon: <HeartPulse className="w-6 h-6 text-brand-purple-accent" />,
@@ -158,57 +142,72 @@ export const PRODUCTS = [
   {
     id: "nutri-q-plus",
     name: "Nutri-Q*Plus",
-    subtitle: "A BASE DE TUDO: NUTRIÇÃO CELULAR DE ALTA PERFORMANCE.",
-    forWhom: "Quem tem deficiências nutricionais graves e precisa tapar os buracos.",
+    subtitle: "ESSENCIA VIBACIONAL QUANTICA",
+    forWhom: "",
     supports: [
       "Preenchimento agressivo de lacunas vitamínicas",
-      "Fortalecimento brutal de unhas e cabelos",
-      "Imunidade de aço"
+      "NEUTRALIZAR AS INTOLERANCIAS ALIMENTAR"
     ],
     symptoms: [
       "Cabelo caindo e unhas quebrando",
+      "EVITA DESCONFORTO DE CERTAS INTOLERANCIAS",
       "Fica doente por qualquer motivo",
+      "ATUA NA PROTEÇÃO DOS ALIMENTOS, AUXILIANDO NAS SUA LIMPEZA E CONTRIBUINDO PARA QUE SE MANTENHAM SEGUROS E CONSERVADOS POR MAIS TEMPO",
       "Corpo fraco e sem nutrientes"
     ],
     guidance: "Sem base, o prédio cai. Vou te dar a fundação exata que seu corpo precisa.",
     icon: <Sparkles className="w-6 h-6 text-brand-purple-accent" />,
     imageType: "bottle-nutri-q-plus"
+  },
+  {
+    id: "acqua",
+    name: "ACQUA",
+    subtitle: "ÁGUA DE ALTA QUALIDADE E PUREZA",
+    forWhom: "Quem busca hidratação premium para potencializar saúde e bem-estar",
+    supports: [
+      "Hidratação celular profunda",
+      "Pureza e qualidade superior",
+      "Potencializa a absorção dos demais suplementos"
+    ],
+    symptoms: [
+      "Cansaço e falta de energia por desidratação",
+      "Dificuldade na absorção de nutrientes",
+      "Qualidade de vida abaixo do ideal"
+    ],
+    guidance: "A base de qualquer protocolo começa pela hidratação certa. Vou te mostrar como usar a Acqua como fundação da sua saúde.",
+    icon: <Droplet className="w-6 h-6 text-brand-purple-accent" />,
+    imageType: "bottle-acqua"
+  },
+  {
+    id: "american-sugar",
+    name: "American Sugar",
+    subtitle: "ALIMENTO EM PÓ PARA DIETAS DE INGESTÃO CONTROLADA DE AÇÚCARES",
+    forWhom: "Quem quer manter dieta equilibrada sem abrir mão do sabor doce",
+    supports: [
+      "Zero Calorias — sem Glicose, Sacarose, Maltose, Frutose ou Lactose",
+      "Ingredientes naturais: Trealose, Taumatina e Cálcio de alga Lithothamnion",
+      "NÃO CONTÉM GLÚTEN — sem sabor residual"
+    ],
+    symptoms: [
+      "Quer adoçar sem culpa ou calorias",
+      "Intolerância ou restrição a açúcares convencionais",
+      "Busca substituir açúcares e adoçantes com sabor real"
+    ],
+    guidance: "American Sugar é uma revolução — doçura real sem nenhuma caloria. Vou te mostrar como incluir no seu protocolo sem comprometer sua dieta.",
+    icon: <Sparkles className="w-6 h-6 text-brand-purple-accent" />,
+    imageType: "bottle-american-sugar"
   }
 ];
 
 export const FAQS = [
-  {
-    q: "ISSO SUBSTITUI MEU MÉDICO?",
-    a: "NÃO. Eu sou terapeuta e estrategista de suplementação. Não dou diagnóstico, dou RESULTADO através de suplementação inteligente. Mantenha seu médico."
-  },
-  {
-    q: "EM QUANTO TEMPO EU VEJO MEU CORPO MUDAR?",
-    a: "Depende do seu nível de destruição atual. Mas se você seguir o protocolo à risca, o choque de energia e leveza vem nas primeiras semanas. Aqui não tem mágica, tem ciência e execução."
-  },
-  {
-    q: "POSSO TOMAR VÁRIOS DE UMA VEZ?",
-    a: "Pode, e a sinergia entre eles é brutal. MAS SÓ SE EU MANDAR. Misturar suplementos sem estratégia é jogar dinheiro no lixo. Eu vou te dar o mapa exato."
-  },
-  {
-    q: "QUEM É PROIBIDO DE USAR?",
-    a: "Gestantes, lactantes e crianças não entram no jogo sem aval médico. Na nossa primeira conversa, eu faço a triagem implacável de segurança."
-  },
-  {
-    q: "COMO FUNCIONA A MENTORIA?",
-    a: "É direto ao ponto. Você não compra um pote e fica perdido. Eu vou dissecar sua rotina, te dar a dose cirúrgica, o horário perfeito e cobrar sua evolução no WhatsApp."
-  },
-  {
-    q: "E SE EU TIVER DÚVIDAS NO MEIO DO CAMINHO?",
-    a: "Você tem acesso direto a mim no WhatsApp. Sem robôs, sem equipe de suporte júnior. Você fala comigo e nós ajustamos a rota na hora."
-  },
-  {
-    q: "COMO EU COMPRO ESSA ELITE DE SUPLEMENTOS?",
-    a: "Primeiro eu aprovo o seu protocolo. Depois, te mando o link blindado para você comprar os produtos 100% originais direto da fonte."
-  },
-  {
-    q: "VOCÊ DEMORA PRA RESPONDER?",
-    a: "Eu prezo por velocidade. Se eu estiver atendendo, você aguarda. Mas ninguém fica sem resposta. O suporte aqui é real e agressivo."
-  }
+  { q: "ISSO SUBSTITUI MEU MÉDICO?", a: "NÃO. Eu sou terapeuta e estrategista de suplementação. Não dou diagnóstico, dou RESULTADO através de suplementação inteligente. Mantenha seu médico." },
+  { q: "EM QUANTO TEMPO EU VEJO MEU CORPO MUDAR?", a: "Depende do seu nível de destruição atual. Mas se você seguir o protocolo à risca, o choque de energia e leveza vem nas primeiras semanas. Aqui não tem mágica, tem ciência e execução." },
+  { q: "POSSO TOMAR VÁRIOS DE UMA VEZ?", a: "Pode, e a sinergia entre eles é brutal. MAS SÓ SE EU MANDAR. Misturar suplementos sem estratégia é jogar dinheiro no lixo. Eu vou te dar o mapa exato." },
+  { q: "QUEM É PROIBIDO DE USAR?", a: "Gestantes, lactantes e crianças não entram no jogo sem aval médico. Na nossa primeira conversa, eu faço a triagem implacável de segurança." },
+  { q: "COMO FUNCIONA A MENTORIA?", a: "É direto ao ponto. Você não compra um pote e fica perdido. Eu vou dissecar sua rotina, te dar a dose cirúrgica, o horário perfeito e cobrar sua evolução no WhatsApp." },
+  { q: "E SE EU TIVER DÚVIDAS NO MEIO DO CAMINHO?", a: "Você tem acesso direto a mim no WhatsApp. Sem robôs, sem equipe de suporte júnior. Você fala comigo e nós ajustamos a rota na hora." },
+  { q: "COMO EU COMPRO ESSA ELITE DE SUPLEMENTOS?", a: "Primeiro eu aprovo o seu protocolo. Depois, te mando o link blindado para você comprar os produtos 100% originais direto da fonte." },
+  { q: "VOCÊ DEMORA PRA RESPONDER?", a: "Eu prezo por velocidade. Se eu estiver atendendo, você aguarda. Mas ninguém fica sem resposta. O suporte aqui é real e agressivo." }
 ];
 
 export const BENEFITS = [
