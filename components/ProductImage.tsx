@@ -1,20 +1,20 @@
 import React from 'react';
 
 const imageMap: Record<string, string> = {
-  'bottle-spirulina':    'https://i.ibb.co/sd8xWNNF/spirulina-1.png',
-  'bottle-floranew':     'https://i.ibb.co/W48Gyg6D/floranew.png',
-  'bottle-ionew':        'https://i.ibb.co/7dsW2Lnd/ionew.png',
-  'bottle-aminofloranew':'https://i.ibb.co/M5JdZ6fS/Aminofloranew.png',
-  'bottle-biosymbio':    'https://i.ibb.co/nMW82hY1/quantum-bio.png',
-  'bottle-mtox-cdhg':    'https://i.ibb.co/1fSDrh0d/Mtox-CDHG.png',
-  'bottle-mtox-alzn':    'https://i.ibb.co/zVpktf8J/Mtox-AIZn.png',
-  'bottle-ghl-plus':     'https://i.ibb.co/mFH3Mch1/12.png',
-  'bottle-nutri-q-plus': 'https://i.ibb.co/hFm2pYRZ/11.png',
+  'bottle-spirulina':      'https://i.ibb.co/sd8xWNNF/spirulina-1.png',
+  'bottle-floranew':       'https://i.ibb.co/CpqZ79ZK/Floranew-Caixa.png',
+  'bottle-ionew':          'https://i.ibb.co/7dsW2Lnd/ionew.png',
+  'bottle-aminofloranew':  'https://i.ibb.co/M5JdZ6fS/Aminofloranew.png',
+  'bottle-biosymbio':      'https://i.ibb.co/HL69WzL5/16.png',
+  'bottle-mtox-cdhg':      'https://i.ibb.co/4RJRSkQq/17.png',
+  'bottle-ghl-plus':       'https://i.ibb.co/mFH3Mch1/12.png',
+  'bottle-nutri-q-plus':   'https://i.ibb.co/hFm2pYRZ/11.png',
+  'bottle-acqua':          'https://i.ibb.co/0RTkFxg7/14.png',
+  'bottle-american-sugar': 'https://i.ibb.co/k6HdxFDP/13.png',
 };
 
 export const ProductImage: React.FC<{ productName: string; type?: string }> = ({ productName, type = 'glass' }) => {
   const src = type ? imageMap[type] : undefined;
-
   if (src) {
     return (
       <div className="relative w-full max-w-[340px] mx-auto flex items-center justify-center" style={{ minHeight: '280px' }}>
@@ -27,7 +27,6 @@ export const ProductImage: React.FC<{ productName: string; type?: string }> = ({
       </div>
     );
   }
-
   return (
     <div className="relative w-full max-w-[280px] mx-auto aspect-[3/4] flex items-center justify-center">
       <div className="absolute inset-0 bg-brand-purple-accent/20 blur-3xl rounded-full scale-75 animate-pulse"></div>
